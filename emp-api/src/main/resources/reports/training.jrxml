@@ -1,0 +1,173 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="training" language="java" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a5c9b49-9dc5-422a-ac69-e92cf61ef530">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="training_db"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50.0" bold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18.0" bold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14.0" bold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle mode="Opaque" backcolor="#F0EFEF">
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+		</conditionalStyle>
+	</style>
+	<query language="SQL"><![CDATA[SELECT *
+FROM training_management]]></query>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="training_management"/>
+	</field>
+	<field name="certificate_number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="certificate_number"/>
+		<property name="com.jaspersoft.studio.field.label" value="certificate_number"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="training_management"/>
+	</field>
+	<field name="description" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="description"/>
+		<property name="com.jaspersoft.studio.field.label" value="description"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="training_management"/>
+	</field>
+	<field name="end_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="end_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="end_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="training_management"/>
+	</field>
+	<field name="grade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="grade"/>
+		<property name="com.jaspersoft.studio.field.label" value="grade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="training_management"/>
+	</field>
+	<field name="issue_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="issue_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="issue_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="training_management"/>
+	</field>
+	<field name="location" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="location"/>
+		<property name="com.jaspersoft.studio.field.label" value="location"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="training_management"/>
+	</field>
+	<field name="start_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="start_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="start_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="training_management"/>
+	</field>
+	<field name="trainer_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="trainer_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="trainer_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="training_management"/>
+	</field>
+	<field name="training_title" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="training_title"/>
+		<property name="com.jaspersoft.studio.field.label" value="training_title"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="training_management"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="102" splitType="Stretch">
+		<element kind="frame" uuid="d8d9e644-3a32-491d-97cb-a277aff17133" mode="Opaque" x="0" y="0" width="742" height="66" backcolor="#000000">
+			<element kind="staticText" uuid="27d8f6ee-f0a9-44f6-a160-1763c3b00f30" x="0" y="0" width="370" height="66" bold="false" vTextAlign="Bottom" style="Title">
+				<text><![CDATA[Traininng Status]]></text>
+				<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4" style="Title"/>
+			</element>
+			<element kind="staticText" uuid="cfa21334-0634-4605-9ea7-aca4981f67e4" x="370" y="37" width="316" height="29" fontSize="22.0" bold="false" hTextAlign="Right" style="SubTitle">
+				<text><![CDATA[Cherry SubTitle]]></text>
+			</element>
+		</element>
+		<element kind="frame" uuid="b0c895f6-6dbd-477d-9858-9ad66af087e1" mode="Opaque" x="0" y="70" width="742" height="32" forecolor="#000000" backcolor="#CC0000">
+			<element kind="textField" uuid="a33fce3b-20c1-4696-873a-fe134d1e7d88" x="553" y="12" width="165" height="20" forecolor="#FFFFFF" fontSize="12.0" pattern="EEEEE dd MMMMM yyyy" hTextAlign="Right">
+				<expression><![CDATA[new java.util.Date()]]></expression>
+			</element>
+		</element>
+	</title>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="18" splitType="Stretch">
+		<element kind="staticText" uuid="27348c49-c312-49b0-8cfd-c4d360b57d58" mode="Opaque" x="0" y="0" width="90" height="18" forecolor="#FFFFFF" backcolor="#0A0100" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[CR Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a18b3e60-9c7b-4108-8ac9-ae8a4505ae1e"/>
+		</element>
+		<element kind="staticText" uuid="04770841-c3a5-4004-8889-38cc2cbca502" mode="Opaque" x="90" y="0" width="89" height="18" forecolor="#FFFFFF" backcolor="#0A0100" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[End Date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="927b17e4-e3a2-497b-8186-806608ecef8d"/>
+		</element>
+		<element kind="staticText" uuid="d9e19874-84cd-45b3-929a-436f7c85f2d2" mode="Opaque" x="180" y="0" width="89" height="18" forecolor="#FFFFFF" backcolor="#0A0100" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Grade]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="71128873-73be-4ea3-a61c-8e64b0e06daf"/>
+		</element>
+		<element kind="staticText" uuid="a6bc2ce9-71af-40cc-ac2d-92bc93addd72" mode="Opaque" x="270" y="0" width="89" height="18" forecolor="#FFFFFF" backcolor="#0A0100" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Issue Date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a43451f-e913-498b-8842-c833856c2b06"/>
+		</element>
+		<element kind="staticText" uuid="beef3318-a427-4e8c-93d1-f0570f836902" mode="Opaque" x="360" y="0" width="89" height="18" forecolor="#FFFFFF" backcolor="#0A0100" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Location]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="772aa3fd-133b-4623-aecd-07b30349139b"/>
+		</element>
+		<element kind="staticText" uuid="b558f726-c378-48d4-9aa3-27376c93a251" mode="Opaque" x="450" y="0" width="89" height="18" forecolor="#FFFFFF" backcolor="#0A0100" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Start Date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="59e3eee3-2b9c-433c-8869-35754a9c07d2"/>
+		</element>
+		<element kind="staticText" uuid="b8d19fb6-c104-47ad-be7b-37991634333f" mode="Opaque" x="540" y="0" width="110" height="18" forecolor="#FFFFFF" backcolor="#0A0100" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Trainner Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="be71882f-344f-4e08-a0f0-746d72f52e47"/>
+		</element>
+		<element kind="staticText" uuid="f140312c-bd94-49eb-9e06-0cf68693d5ed" mode="Opaque" x="650" y="0" width="92" height="18" forecolor="#FFFFFF" backcolor="#0A0100" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Tran Title]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="69eff714-d774-4bb9-ae2d-75c3d5a0db62"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="46" splitType="Stretch">
+			<element kind="textField" uuid="a994c07e-3210-4a51-a769-051066c292ca" x="0" y="14" width="90" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{certificate_number}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a18b3e60-9c7b-4108-8ac9-ae8a4505ae1e"/>
+			</element>
+			<element kind="textField" uuid="3391cdeb-4a6c-4770-a786-70655481633c" x="90" y="14" width="89" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{end_date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="927b17e4-e3a2-497b-8186-806608ecef8d"/>
+			</element>
+			<element kind="textField" uuid="b547e8fb-b540-48db-8a83-0714a380dd18" x="180" y="14" width="89" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{grade}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="71128873-73be-4ea3-a61c-8e64b0e06daf"/>
+			</element>
+			<element kind="textField" uuid="6c9c12cd-a46c-43f7-a9d1-c161244e3059" x="270" y="14" width="89" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{issue_date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a43451f-e913-498b-8842-c833856c2b06"/>
+			</element>
+			<element kind="textField" uuid="df58ae0d-84c4-446b-b7ed-15cad63be9ab" x="360" y="14" width="89" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{location}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="772aa3fd-133b-4623-aecd-07b30349139b"/>
+			</element>
+			<element kind="textField" uuid="b6192b68-9ad0-4d7a-a877-a4eb5fb4b024" x="450" y="14" width="89" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{start_date}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="59e3eee3-2b9c-433c-8869-35754a9c07d2"/>
+			</element>
+			<element kind="textField" uuid="6104a76d-b07e-43a4-8bb0-8a906f7bdd8b" x="540" y="14" width="110" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{trainer_name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="be71882f-344f-4e08-a0f0-746d72f52e47"/>
+			</element>
+			<element kind="textField" uuid="41596ef2-3c90-42e7-b335-eefbc1b3a879" x="650" y="16" width="92" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{training_title}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="69eff714-d774-4bb9-ae2d-75c3d5a0db62"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="7" splitType="Stretch">
+		<element kind="line" uuid="501ac6c4-e9d4-43cb-ba6b-7f2f44394cf3" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1">
+			<pen lineWidth="0.5" lineColor="#999999"/>
+		</element>
+	</columnFooter>
+	<pageFooter height="25" splitType="Stretch">
+		<element kind="frame" uuid="ffb10ec8-0371-4545-8eaa-96d62ad3cec0" mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000">
+			<element kind="textField" uuid="b5521ea6-5f36-4864-856f-58d0bcd011f2" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" fontSize="10.0" evaluationTime="Report" bold="false" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
+			</element>
+			<element kind="textField" uuid="e625ea3c-1741-4cfe-81cf-fbbdd00162c8" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" fontSize="10.0" bold="false" hTextAlign="Right" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
+			</element>
+			<element kind="textField" uuid="0c9f7e91-d3f5-47f9-82b7-0b2b3a43a5d6" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" fontSize="10.0" pattern="EEEEE dd MMMMM yyyy" bold="false" vTextAlign="Middle" style="Column header">
+				<expression><![CDATA[new java.util.Date()]]></expression>
+			</element>
+		</element>
+	</pageFooter>
+	<summary splitType="Stretch"/>
+</jasperReport>

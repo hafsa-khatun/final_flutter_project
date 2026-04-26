@@ -1,0 +1,170 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="Blank_A4" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bcf8349f-62a0-4872-b619-e53920825e1c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="payroll_db"/>
+	<query language="SQL"><![CDATA[select * from payroll_processing]]></query>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll_processing"/>
+	</field>
+	<field name="absent_days" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="absent_days"/>
+		<property name="com.jaspersoft.studio.field.label" value="absent_days"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll_processing"/>
+	</field>
+	<field name="approved_leave_days" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="approved_leave_days"/>
+		<property name="com.jaspersoft.studio.field.label" value="approved_leave_days"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll_processing"/>
+	</field>
+	<field name="basic_salary" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="basic_salary"/>
+		<property name="com.jaspersoft.studio.field.label" value="basic_salary"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll_processing"/>
+	</field>
+	<field name="deduction" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="deduction"/>
+		<property name="com.jaspersoft.studio.field.label" value="deduction"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll_processing"/>
+	</field>
+	<field name="employee_code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="employee_code"/>
+		<property name="com.jaspersoft.studio.field.label" value="employee_code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll_processing"/>
+	</field>
+	<field name="employee_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="employee_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="employee_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll_processing"/>
+	</field>
+	<field name="gross_salary" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="gross_salary"/>
+		<property name="com.jaspersoft.studio.field.label" value="gross_salary"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll_processing"/>
+	</field>
+	<field name="net_salary" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="net_salary"/>
+		<property name="com.jaspersoft.studio.field.label" value="net_salary"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll_processing"/>
+	</field>
+	<field name="month" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="month"/>
+		<property name="com.jaspersoft.studio.field.label" value="month"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payroll_processing"/>
+	</field>
+	<group name="id">
+		<expression><![CDATA[$F{id}]]></expression>
+	</group>
+	<group name="absent_days">
+		<expression><![CDATA[$F{absent_days}]]></expression>
+	</group>
+	<group name="approved_leave_days">
+		<expression><![CDATA[$F{approved_leave_days}]]></expression>
+	</group>
+	<group name="basic_salary">
+		<expression><![CDATA[$F{basic_salary}]]></expression>
+	</group>
+	<group name="deduction">
+		<expression><![CDATA[$F{deduction}]]></expression>
+	</group>
+	<group name="employee_code">
+		<expression><![CDATA[$F{employee_code}]]></expression>
+	</group>
+	<group name="employee_name">
+		<expression><![CDATA[$F{employee_name}]]></expression>
+	</group>
+	<group name="gross_salary">
+		<expression><![CDATA[$F{gross_salary}]]></expression>
+	</group>
+	<group name="net_salary">
+		<expression><![CDATA[$F{net_salary}]]></expression>
+	</group>
+	<group name="month">
+		<expression><![CDATA[$F{month}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="5dca3d26-cf59-4fd0-aa76-c835e48e582f" mode="Opaque" x="-20" y="0" width="595" height="68" forecolor="#C28C8C" backcolor="#0D0101" fontSize="22.0" bold="false" hTextAlign="Center">
+			<text><![CDATA[all employee processing]]></text>
+		</element>
+	</title>
+	<columnHeader height="61" splitType="Stretch">
+		<element kind="staticText" uuid="4e30a4fc-74e0-42e4-bdda-0a225d9c2058" mode="Opaque" x="-20" y="0" width="50" height="30" forecolor="#FCF5F5" backcolor="#0A0101" hTextAlign="Center">
+			<text><![CDATA[ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="221bf068-aedb-48ab-88b2-aedcae8c437f"/>
+		</element>
+		<element kind="staticText" uuid="1f497eb1-303b-4e91-8b87-528ad0c4acc2" mode="Opaque" x="30" y="0" width="70" height="30" forecolor="#FCF5F5" backcolor="#0A0101" hTextAlign="Center">
+			<text><![CDATA[Absent]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="be08f037-fb76-4127-a963-fee639afde42"/>
+		</element>
+		<element kind="staticText" uuid="f4c9060d-cf23-44c3-941d-b53e08590f00" mode="Opaque" x="100" y="0" width="60" height="30" forecolor="#FCF5F5" backcolor="#0A0101" hTextAlign="Center">
+			<text><![CDATA[Leave]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c3226c5d-cddd-4c28-8102-7e715c3c7c87"/>
+		</element>
+		<element kind="staticText" uuid="ae074ddd-9f7a-478a-b65d-4865fc1a5e51" mode="Opaque" x="160" y="0" width="70" height="30" forecolor="#FCF5F5" backcolor="#0A0101" hTextAlign="Center">
+			<text><![CDATA[B.Salary]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c49ed279-f4dc-4764-b75d-f13d5a354bae"/>
+		</element>
+		<element kind="staticText" uuid="bd5fa20e-d800-4815-b084-99f1a2d53c92" mode="Opaque" x="230" y="0" width="70" height="30" forecolor="#FCF5F5" backcolor="#0A0101" hTextAlign="Center">
+			<text><![CDATA[Deduction]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0a92589a-4ac4-40f6-9872-c99a82060a15"/>
+		</element>
+		<element kind="staticText" uuid="c0e658a2-87fa-4b7f-a47a-a0d9d7c402c7" mode="Opaque" x="300" y="0" width="80" height="30" forecolor="#FCF5F5" backcolor="#0A0101" hTextAlign="Center">
+			<text><![CDATA[Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ea77709a-e9ac-4de5-8a5e-75abc6f75720"/>
+		</element>
+		<element kind="staticText" uuid="854c4f15-1566-43ed-a97a-b1100f1c9e09" mode="Opaque" x="380" y="0" width="65" height="30" forecolor="#FCF5F5" backcolor="#0A0101" hTextAlign="Center">
+			<text><![CDATA[G.Salary]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0a6bc586-c8f1-4f5f-a97a-fb53e318dea2"/>
+		</element>
+		<element kind="staticText" uuid="edc31e97-3e8f-44b2-b269-bde8263ad36b" mode="Opaque" x="445" y="0" width="55" height="30" forecolor="#FCF5F5" backcolor="#0A0101" hTextAlign="Center">
+			<text><![CDATA[N.Salary]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37b42223-0da1-4dac-b9d2-f1142006462b"/>
+		</element>
+		<element kind="staticText" uuid="f13812f9-86c7-4deb-bc93-65571041c899" mode="Opaque" x="500" y="0" width="75" height="30" forecolor="#FCF5F5" backcolor="#0A0101" hTextAlign="Center">
+			<text><![CDATA[Month]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e91ecb1a-7532-42cf-9ade-ce1d88ebac9f"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<element kind="textField" uuid="69e822c0-6d35-4905-a58f-3b7f0786a658" x="0" y="0" width="30" height="30">
+				<expression><![CDATA[$F{id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="221bf068-aedb-48ab-88b2-aedcae8c437f"/>
+			</element>
+			<element kind="textField" uuid="953e0e69-3a58-4057-aa56-572fec7fa3a6" x="30" y="0" width="70" height="30">
+				<expression><![CDATA[$F{absent_days}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="be08f037-fb76-4127-a963-fee639afde42"/>
+			</element>
+			<element kind="textField" uuid="71e60ae2-07d3-43a4-8a03-1635d0353ce1" x="100" y="0" width="60" height="30">
+				<expression><![CDATA[$F{approved_leave_days}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c3226c5d-cddd-4c28-8102-7e715c3c7c87"/>
+			</element>
+			<element kind="textField" uuid="2ae32d4d-b8d5-47c0-8df2-249cc5ce942f" x="160" y="0" width="70" height="30">
+				<expression><![CDATA[$F{basic_salary}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c49ed279-f4dc-4764-b75d-f13d5a354bae"/>
+			</element>
+			<element kind="textField" uuid="ca561a48-f239-4def-b7dc-a78442274db2" x="230" y="0" width="70" height="30">
+				<expression><![CDATA[$F{deduction}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0a92589a-4ac4-40f6-9872-c99a82060a15"/>
+			</element>
+			<element kind="textField" uuid="dd42d581-ff1b-4c12-b6f7-4ec5169c3a75" x="300" y="0" width="80" height="30">
+				<expression><![CDATA[$F{employee_name}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ea77709a-e9ac-4de5-8a5e-75abc6f75720"/>
+			</element>
+			<element kind="textField" uuid="7e3d8161-729b-4bc8-a58d-c7cee648a7b3" x="380" y="0" width="65" height="30">
+				<expression><![CDATA[$F{gross_salary}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0a6bc586-c8f1-4f5f-a97a-fb53e318dea2"/>
+			</element>
+			<element kind="textField" uuid="10b2ba10-e295-4462-bb3e-a25484075b5f" x="445" y="0" width="55" height="30">
+				<expression><![CDATA[$F{net_salary}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="37b42223-0da1-4dac-b9d2-f1142006462b"/>
+			</element>
+			<element kind="textField" uuid="2bd73bf5-709c-4245-bdee-c4fdf0ce3566" x="500" y="0" width="55" height="30">
+				<expression><![CDATA[$F{month}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e91ecb1a-7532-42cf-9ade-ce1d88ebac9f"/>
+			</element>
+		</band>
+	</detail>
+</jasperReport>
