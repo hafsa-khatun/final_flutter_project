@@ -55,7 +55,7 @@ class _ProjectPageState extends State<ProjectPage> {
     }
   }
 
-  // 🔹 প্রজেক্ট ডিটেইলস দেখানোর ফাংশন
+
   void showProjectDetails(ProjectModel p) {
     showModalBottomSheet(
       context: context,
@@ -275,7 +275,7 @@ class _ProjectPageState extends State<ProjectPage> {
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
         hoverColor: statusColor.withOpacity(0.05),
-        onTap: () => showProjectDetails(p), // 🔹 ক্লিক করলে ডিটেইলস দেখাবে
+        onTap: () => showProjectDetails(p),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(

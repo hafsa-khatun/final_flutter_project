@@ -115,10 +115,13 @@ class _HomePageState extends State<HomePage> {
               ),
 
               const SizedBox(height: 30),
+              const Text("Overview Statistics", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87)),
+              const SizedBox(height: 15),
+              _buildBarChartCard(), // 🔹 নতুন বার চার্ট
+
+              const SizedBox(height: 30),
               const Text("Department Distribution", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87)),
               const SizedBox(height: 15),
-              
-              // 🔹 Pie Chart Card
               _buildChartCard(),
 
               const SizedBox(height: 30),
@@ -139,6 +142,62 @@ class _HomePageState extends State<HomePage> {
                   ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+
+  Widget _buildBarChartCard() {
+    if (isLoading) return const SizedBox(height: 100, child: Center(child: CircularProgressIndicator()));
+    
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            const Text("Staff vs Applicants vs Projects", style: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey)),
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 200,
+              child: BarChart(
+                BarChartData(
+                  alignment: BarChartAlignment.spaceAround,
+                  maxY: (totalApplicants > totalEmp ? totalApplicants : totalEmp).toDouble() + 5,
+                  barTouchData: BarTouchData(enabled: true),
+                  titlesData: FlTitlesData(
+                    show: true,
+                    bottomTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                        showTitles: true,
+                        getTitlesWidget: (value, meta) {
+                          const style = TextStyle(fontSize: 10, fontWeight: FontWeight.bold);
+                          switch (value.toInt()) {
+                            case 0: return const Text('Staff', style: style);
+                            case 1: return const Text('Applicants', style: style);
+                            case 2: return const Text('Projects', style: style);
+                            default: return const Text('');
+                          }
+                        },
+                      ),
+                    ),
+                    leftTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                    topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                    rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                  ),
+                  gridData: const FlGridData(show: false),
+                  borderData: FlBorderData(show: false),
+                  barGroups: [
+                    BarChartGroupData(x: 0, barRods: [BarChartRodData(toY: totalEmp.toDouble(), color: Colors.blue, width: 20, borderRadius: BorderRadius.circular(4))]),
+                    BarChartGroupData(x: 1, barRods: [BarChartRodData(toY: totalApplicants.toDouble(), color: Colors.orange, width: 20, borderRadius: BorderRadius.circular(4))]),
+                    BarChartGroupData(x: 2, barRods: [BarChartRodData(toY: totalProjects.toDouble(), color: Colors.teal, width: 20, borderRadius: BorderRadius.circular(4))]),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

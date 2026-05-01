@@ -5,6 +5,7 @@ import '../models/payroll_process.dart';
 import '../service/paroll_process.dart';
 import '../service/attandance.dart';
 import '../service/leave_request.dart';
+import '../service/salary.dart';
 
 class PayrollPage extends StatefulWidget {
   const PayrollPage({super.key});
@@ -17,6 +18,7 @@ class _PayrollPageState extends State<PayrollPage> {
   final PayrollService api = PayrollService();
   final AttendanceService attendanceApi = AttendanceService();
   final LeaveRequestService leaveApi = LeaveRequestService();
+  final SalaryService salaryApi = SalaryService();
   
   List<PayrollModel> data = [];
   bool isLoading = false;
@@ -68,35 +70,63 @@ class _PayrollPageState extends State<PayrollPage> {
     setState(() => isLoading = true);
     try {
       String formattedMonth = _formatToYearMonth(selectedMonth);
-      final rawPayroll = await api.processPayroll(formattedMonth);
+      
+      // Fetch all necessary data
+      final allSalaries = await salaryApi.getAllSalary();
       final allAttendance = await attendanceApi.getAll();
       final allLeaves = await leaveApi.getAll();
 
-      List<PayrollModel> updatedData = [];
-      for (var p in rawPayroll) {
+      List<PayrollModel> processedList = [];
+
+      for (var s in allSalaries) {
+        String empName = s.name.trim();
+        String empCode = s.salaryCode.trim();
+        double grossSalary = s.grossSalary;
+        double basicSalary = s.basicSalary;
+
+        // 🔹 Attendance mapping - Matching with flexible logic
         int totalAbsent = allAttendance.where((a) {
-          return (a.employeeCode.trim() == p.employeeCode.trim()) && a.date.contains(formattedMonth) && a.status.toUpperCase() == "ABSENT";
+          bool nameMatch = a.employeeName.trim().toLowerCase() == empName.toLowerCase();
+          bool codeMatch = a.employeeCode.trim().toLowerCase() == empCode.toLowerCase();
+          bool dateMatch = a.date.contains(formattedMonth);
+          bool isAbsent = a.status.trim().toUpperCase() == "ABSENT";
+          
+          return (nameMatch || codeMatch) && dateMatch && isAbsent;
         }).length;
 
+        // Leave mapping
         int approvedLeaveCount = 0;
-        var employeeLeaves = allLeaves.where((l) => l.employeeName.trim() == p.employeeName.trim() && l.status.toUpperCase() == "APPROVED");
+        var employeeLeaves = allLeaves.where((l) {
+          bool nameMatch = l.employeeName.trim().toLowerCase() == empName.toLowerCase();
+          bool codeMatch = l.employeeCode.trim().toLowerCase() == empCode.toLowerCase();
+          return (nameMatch || codeMatch) && l.status.toUpperCase() == "APPROVED";
+        });
+        
         for (var leave in employeeLeaves) {
           approvedLeaveCount += _calculateDaysBetween(leave.startDate, leave.endDate, formattedMonth);
         }
 
-        double dailySalary = p.grossSalary / 30;
-        double calculatedDeduction = totalAbsent * dailySalary; 
-        double calculatedNetSalary = p.grossSalary - calculatedDeduction;
 
-        updatedData.add(PayrollModel(
-          id: p.id, employeeCode: p.employeeCode, employeeName: p.employeeName,
-          basicSalary: p.basicSalary, grossSalary: p.grossSalary, month: p.month,
-          absentDays: totalAbsent, approvedLeaveDays: approvedLeaveCount,
-          deduction: calculatedDeduction, netSalary: calculatedNetSalary,
+        double dailySalary = grossSalary / 30;
+        double calculatedDeduction = totalAbsent * dailySalary; 
+        double calculatedNetSalary = grossSalary - calculatedDeduction;
+
+        processedList.add(PayrollModel(
+          id: 0,
+          employeeCode: empCode, 
+          employeeName: empName,
+          basicSalary: basicSalary, 
+          grossSalary: grossSalary, 
+          month: formattedMonth,
+          absentDays: totalAbsent, 
+          approvedLeaveDays: approvedLeaveCount,
+          deduction: calculatedDeduction, 
+          netSalary: calculatedNetSalary,
         ));
       }
-      setState(() { data = updatedData; });
-      if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Payroll Processed Successfully"), backgroundColor: Colors.green));
+
+      setState(() { data = processedList; });
+      if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Payroll Processed with Absent Deductions"), backgroundColor: Colors.green));
     } catch (e) {
       if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Process Error: $e"), backgroundColor: Colors.red));
     }
@@ -105,7 +135,7 @@ class _PayrollPageState extends State<PayrollPage> {
 
   void delete(int id) async {
     try {
-      await api.delete(id);
+      if (id != 0) await api.delete(id);
       setState(() => data.removeWhere((e) => e.id == id));
     } catch (e) { debugPrint("Delete Error: $e"); }
   }
@@ -208,7 +238,7 @@ class _PayrollPageState extends State<PayrollPage> {
                           subtitle: Text("Net Payable: \$${p.netSalary.toStringAsFixed(2)}", style: const TextStyle(color: Colors.blue, fontWeight: FontWeight.w600)),
                           trailing: IconButton(
                             icon: const Icon(Icons.delete_outline, color: Colors.redAccent),
-                            onPressed: () => delete(p.id!),
+                            onPressed: () => delete(p.id ?? 0),
                           ),
                         ),
                       ),

@@ -8,7 +8,7 @@ import '../models/document.dart';
 class DocumentService {
   final String baseUrl = "http://10.0.2.2:8080/documents";
 
-  // 🔹 সব ডকুমেন্ট লোড করার জন্য নতুন মেথড
+
   Future<List<DocumentModel>> getAll() async {
     final res = await http.get(Uri.parse(baseUrl));
 

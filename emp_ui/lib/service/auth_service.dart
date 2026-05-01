@@ -5,7 +5,7 @@ import '../models/login_model.dart';
 class AuthService {
   final String baseUrl = "http://10.0.2.2:8080/api/auth";
   
-  // 🔹 গ্লোবাল ভেরিয়েবল ইউজারের তথ্য রাখার জন্য
+
   static LoginResponse? loggedUser;
 
   Future<LoginResponse?> login(LoginRequest request) async {
@@ -22,6 +22,10 @@ class AuthService {
     } else {
       throw Exception("Login Failed");
     }
+  }
+
+  static void logout() {
+    loggedUser = null;
   }
 
   static bool isAdmin() => loggedUser?.role == 'ADMIN';

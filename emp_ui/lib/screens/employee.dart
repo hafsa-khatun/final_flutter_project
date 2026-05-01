@@ -104,7 +104,7 @@ class _EmployeePageState extends State<EmployeePage> {
             child: InkWell(
               onTap: () => showDetails(e),
               borderRadius: BorderRadius.circular(12),
-              hoverColor: Colors.blue.shade50, // 🔹 হোভার ইফেক্ট
+              hoverColor: Colors.blue.shade50,
               child: ListTile(
                 leading: CircleAvatar(child: Text(e.fullName[0])),
                 title: Text(e.fullName, style: const TextStyle(fontWeight: FontWeight.bold)),

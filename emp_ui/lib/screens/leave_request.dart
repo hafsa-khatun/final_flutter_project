@@ -227,7 +227,11 @@ class _LeaveRequestPageState extends State<LeaveRequestPage> {
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
         hoverColor: statusColor.withOpacity(0.05),
-        onTap: () {},
+        onTap: () {
+          if (isAdminOrHR && l.status == "PENDING") {
+            _showActionDialog(l);
+          }
+        },
         child: ListTile(
           contentPadding: const EdgeInsets.all(16),
           title: Text(l.employeeName, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
@@ -238,6 +242,10 @@ class _LeaveRequestPageState extends State<LeaveRequestPage> {
               Row(children: [Icon(Icons.category, size: 14, color: Colors.blue.shade900), const SizedBox(width: 5), Text(l.leaveType)]),
               const SizedBox(height: 4),
               Row(children: [Icon(Icons.date_range, size: 14, color: Colors.blue.shade900), const SizedBox(width: 5), Text("${l.startDate} to ${l.endDate}")]),
+              if (l.reason.isNotEmpty) ...[
+                const SizedBox(height: 4),
+                Text("Reason: ${l.reason}", style: TextStyle(color: Colors.grey.shade600, fontSize: 13)),
+              ]
             ],
           ),
           trailing: Container(
@@ -246,6 +254,33 @@ class _LeaveRequestPageState extends State<LeaveRequestPage> {
             child: Text(l.status, style: TextStyle(color: statusColor, fontWeight: FontWeight.bold, fontSize: 12)),
           ),
         ),
+      ),
+    );
+  }
+
+  void _showActionDialog(LeaveRequestModel l) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("Review Leave Request"),
+        content: Text("Do you want to Approve or Reject this leave request from ${l.employeeName}?"),
+        actions: [
+          TextButton(
+            onPressed: () async {
+              await api.reject(l.id!);
+              if (mounted) { Navigator.pop(context); refresh(); }
+            },
+            child: const Text("REJECT", style: TextStyle(color: Colors.red)),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+            onPressed: () async {
+              await api.approve(l.id!);
+              if (mounted) { Navigator.pop(context); refresh(); }
+            },
+            child: const Text("APPROVE", style: TextStyle(color: Colors.white)),
+          ),
+        ],
       ),
     );
   }

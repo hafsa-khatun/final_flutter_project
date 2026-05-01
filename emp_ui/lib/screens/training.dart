@@ -78,7 +78,7 @@ class _TrainingPageState extends State<TrainingPage> {
               TextField(controller: trainer, decoration: const InputDecoration(labelText: "Trainer Name")),
               TextField(controller: desc, decoration: const InputDecoration(labelText: "Description")),
               
-              // 🔹 Date Pickers
+
               TextField(
                 controller: start,
                 readOnly: true,

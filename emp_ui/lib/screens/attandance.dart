@@ -20,7 +20,7 @@ class _AttendancePageState extends State<AttendancePage> {
   
   late Future<List<AttendanceModel>> futureData;
   List<EmployeeModel> employees = [];
-  String selectedFilter = "ALL"; // 🔹 ডিফল্ট ফিল্টার
+  String selectedFilter = "ALL";
 
   @override
   void initState() {

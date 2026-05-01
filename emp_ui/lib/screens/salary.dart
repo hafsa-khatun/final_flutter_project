@@ -50,7 +50,7 @@ class _SalaryPageState extends State<SalaryPage> {
     });
   }
 
-  // 🔹 স্যালারি ডিটেইলস দেখানোর ফাংশন
+
   void showSalaryDetails(SalaryModel s) {
     showModalBottomSheet(
       context: context,
