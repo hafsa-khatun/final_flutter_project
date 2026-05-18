@@ -236,9 +236,9 @@ class _SalaryPageState extends State<SalaryPage> {
                 elevation: 2,
                 margin: const EdgeInsets.only(bottom: 10),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                child: InkWell( // 🔹 স্যালারি কার্ড ক্লিকযোগ্য করা হয়েছে
+                child: InkWell( ে
                   borderRadius: BorderRadius.circular(12),
-                  onTap: () => showSalaryDetails(s), // 🔹 ক্লিক করলে ডিটেইলস দেখাবে
+                  onTap: () => showSalaryDetails(s),
                   child: ListTile(
                     contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     leading: CircleAvatar(backgroundColor: Colors.blue.shade100, child: Icon(Icons.monetization_on, color: Colors.blue.shade900)),
