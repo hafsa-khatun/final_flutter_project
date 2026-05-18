@@ -34,7 +34,7 @@ RegistrationRepository registrationRepo;
         return registrationRepo.findById(id).orElse(null);
     }
 
-    // ✅ Update
+    //  Update
     @PutMapping("/{id}")
     public Registration updateRegistration(@PathVariable Long id,
                                            @RequestBody Registration registration) {
@@ -49,7 +49,7 @@ RegistrationRepository registrationRepo;
         return registrationRepo.save(existing);
     }
 
-    // ✅ Delete
+    //  Delete
     @DeleteMapping("/{id}")
     public void deleteRegistration(@PathVariable Long id) {
         registrationRepo.deleteById(id);
