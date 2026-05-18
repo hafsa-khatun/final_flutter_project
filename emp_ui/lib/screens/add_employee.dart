@@ -39,7 +39,7 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
   void initState() {
     super.initState();
     if (widget.employee != null) {
-      // এডিট মোড হলে ডাটা সেট করুন
+
       nameController.text = widget.employee!.fullName;
       emailController.text = widget.employee!.email;
       phoneController.text = widget.employee!.phone;
@@ -132,7 +132,7 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
               ),
               const SizedBox(height: 15),
 
-              // 🔹 Department Dropdown
+              //  Department Dropdown
               DropdownButtonFormField<int>(
                 value: selectedDeptId,
                 decoration: const InputDecoration(labelText: "Department", border: OutlineInputBorder()),
@@ -147,7 +147,7 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
               ),
               const SizedBox(height: 15),
 
-              // 🔹 Designation Dropdown (Filtered)
+              //  Designation Dropdown (Filtered)
               DropdownButtonFormField<int>(
                 value: selectedDesigId,
                 decoration: const InputDecoration(labelText: "Designation", border: OutlineInputBorder()),
