@@ -46,7 +46,7 @@ class _DesignationPageState extends State<DesignationPage> {
     });
   }
 
-  // 🔹 Delete
+  //  Delete
   void deleteDesignation(int id) async {
     try {
       await api.deleteDesignation(id);
@@ -60,7 +60,7 @@ class _DesignationPageState extends State<DesignationPage> {
     }
   }
 
-  // 🔹 Add/Edit Dialog
+  //  Add/Edit Dialog
   void showFormDialog([DesignationModel? designation]) {
     final nameController = TextEditingController(text: designation?.name);
     int? selectedDeptId = designation?.departmentId;
