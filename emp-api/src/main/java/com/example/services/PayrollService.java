@@ -20,18 +20,18 @@ public class PayrollService {
     private final PayrollProcessingRepository payrollRepo;
     private final AttendanceService attendanceService;
     private final LeaveRequestService leaveService;
-    private final SalaryRepository salaryRepo; // ✅ যোগ করুন
+    private final SalaryRepository salaryRepo; 
 
     public PayrollService(EmployeeRepository employeeRepo,
                           PayrollProcessingRepository payrollRepo,
                           AttendanceService attendanceService,
                           LeaveRequestService leaveService,
-                          SalaryRepository salaryRepo) { // ✅ যোগ করুন
+                          SalaryRepository salaryRepo) { 
         this.employeeRepo = employeeRepo;
         this.payrollRepo = payrollRepo;
         this.attendanceService = attendanceService;
         this.leaveService = leaveService;
-        this.salaryRepo = salaryRepo; // ✅ যোগ করুন
+        this.salaryRepo = salaryRepo; 
     }
 
     @Transactional
@@ -45,7 +45,7 @@ public class PayrollService {
 
             Salary salaryData = salaryRepo.findByEmployeeId(emp.getId()).orElse(null);
             if (salaryData == null) {
-                System.out.println("⚠️ Salary not found for employee: " + empCode);
+                System.out.println(" Salary not found for employee: " + empCode);
                 continue;
             }
 
@@ -75,7 +75,7 @@ public class PayrollService {
             payrollRepo.save(payroll);
         }
 
-        // ✅ সব save শেষে fresh data return করুন
+    
         return payrollRepo.findByMonth(monthStr);
     }
 
