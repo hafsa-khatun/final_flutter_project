@@ -69,7 +69,7 @@ class _ApplicantPageState extends State<ApplicantPage> {
     }
   }
 
-  // 🔹 Add Applicant
+  // Add Applicant
   void showForm() {
     final name = TextEditingController();
     final email = TextEditingController();
@@ -173,7 +173,7 @@ class _ApplicantPageState extends State<ApplicantPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
 
-                  // 🔹 Status Dropdown
+                  //  Status Dropdown
                   DropdownButton<String>(
                     value: a.status,
                     items: statusList.map((s) {
