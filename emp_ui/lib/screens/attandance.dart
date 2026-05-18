@@ -187,7 +187,7 @@ class _AttendancePageState extends State<AttendancePage> {
         backgroundColor: Colors.blue.shade900,
         foregroundColor: Colors.white,
         elevation: 0,
-        // 🔹 ফিল্টার ট্যাব বার
+    
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(60),
           child: Container(
@@ -231,7 +231,6 @@ class _AttendancePageState extends State<AttendancePage> {
           var data = snapshot.data ?? [];
           if (!isAdminOrHR) data = data.where((a) => a.employeeName == user?.fullName).toList();
           
-          // 🔹 ফিল্টার অনুযায়ী ডাটা আলাদা করা
           if (selectedFilter != "ALL") {
             data = data.where((a) => a.status == selectedFilter).toList();
           }
