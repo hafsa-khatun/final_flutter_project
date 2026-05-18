@@ -84,7 +84,7 @@ class _PayrollPageState extends State<PayrollPage> {
         double grossSalary = s.grossSalary;
         double basicSalary = s.basicSalary;
 
-        // 🔹 Attendance mapping - Matching with flexible logic
+        //  Attendance mapping - Matching with flexible logic
         int totalAbsent = allAttendance.where((a) {
           bool nameMatch = a.employeeName.trim().toLowerCase() == empName.toLowerCase();
           bool codeMatch = a.employeeCode.trim().toLowerCase() == empCode.toLowerCase();
